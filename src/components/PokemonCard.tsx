@@ -6,11 +6,14 @@ function PokemonCard() {
 
     return (
         <figure>
-            <img
-            
-                src={pokemon.imgSrc}
-                alt={pokemon.name}
-            />
+         {pokemon.imgSrc ? (
+           <img
+           src={pokemon.imgSrc}
+           alt={pokemon.name}
+       />
+   ) : (
+       <p>???</p>
+   )}
             <figcaption>
                 <h1>{pokemon.name}</h1>
             </figcaption>
@@ -24,12 +27,9 @@ const pokemonList = [
         imgSrc:
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
     },
+    
     {
-        name: "Pikatchu",
-        imgSrc: "https://img.freepik.com/psd-premium/fleurs-autocollants-fille-animaux-dessins-animes-livres-jeu-halloween-briques-arbre-chat-isole-transparent_1056883-42824.jpg?w=740",
-    },
-    {
-        name: "Unknown Pokemon"
+        name: "Mew"  
     }
 ];
 
