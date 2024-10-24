@@ -1,12 +1,12 @@
-import "./App.css";
-import MyTitle from "./components/MyTitle";
+import React from 'react';
+import PokemonCard from './components/PokemonCard';
 
-function App = () {
+function App() {
   return (
-    <section>
-      <MyTitle />
-    </section>
-  );
-};
+    <div>
+   <PokemonCard />
+   </div>
+)
+}
 
 export default App;
