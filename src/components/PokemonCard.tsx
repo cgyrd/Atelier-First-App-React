@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-function PokemonCard() {
-    const pokemon = pokemonList[0]; // Variable affectée au premier Pokémon du tableau
+function PokemonCard(props) {
 
-    return (
+    const { pokemon } = props;
+       return (
         <figure>
          {pokemon.imgSrc ? (
            <img
@@ -21,16 +21,5 @@ function PokemonCard() {
     );
 }
 
-const pokemonList = [
-    {
-        name: "Bulbasaur le BG",
-        imgSrc:
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    },
-    
-    {
-        name: "Mew"  
-    }
-];
 
 export default PokemonCard;
