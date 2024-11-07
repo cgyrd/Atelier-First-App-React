@@ -2,22 +2,33 @@ import React, { useState } from "react";
 import PokemonCard from "./components/PokemonCard";
 
 function App() {
-  const [pokemonIndex, setPokemonIndex] = useState(0);
+  const [PokemonIndex, setPokemonIndex] = useState(0);
 
-  const handlePrevious = () => {
-    setPokemonIndex(pokemonIndex - 1);
-  };
-
-  const handleNext = () => {
-    setPokemonIndex(pokemonIndex + 1);
+  const handleClick = (index: number) => {
+    setPokemonIndex(index);
   };
 
   return (
     <div>
-      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+      {/* Boutons pour sélectionner chaque Pokémon */}
+      {pokemonList.map((pokemon, id) => (
+        <button
+          type="button"
+          key={pokemon.name}
+          onClick={() => handleClick(id)}
+        >
+          {pokemon.name}
+        </button>
+      ))}
+
+      {/* Affiche l'image du Pokémon sélectionné uniquement si imgSrc est disponible */}
       <div>
-        <button onClick={handlePrevious}>Précédent</button>
-        <button onClick={handleNext}> Suivant </button>
+        {pokemonList[PokemonIndex].imgSrc && (
+          <img
+            src={pokemonList[PokemonIndex].imgSrc}
+            alt={pokemonList[PokemonIndex].name}
+          />
+        )}
       </div>
     </div>
   );
